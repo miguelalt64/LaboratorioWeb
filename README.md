@@ -202,6 +202,8 @@ En el navegador se ve de esta forma:
 
 ### Resolución del ejercicio a la manera de 2014 - fetch
 
+A partir de finales de 2013 y predominantemente en 2014, contamos con el API fetch, que permite hacer llamadas AJAX de manera muy limpia «a la jQuery».
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -248,4 +250,22 @@ En el navegador se ve de esta forma:
 </html>
 ```
 
+En el navegador se ve de la siguiente forma:
+
 ![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb2014.JPG)
+
+Para implemtar este ejercicio con Node.js se crei ek siguiente codigo:
+
+```bash
+Npm init -y
+Npm install node-fetch
+Npm start app
+Node app.mjs
+```
+
+Se ve de la siguiente forma:
+
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb2014Node.png)
+
+
+
