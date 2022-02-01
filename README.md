@@ -475,6 +475,6 @@ Posteriormente agregue este codigo en el HTML, con lo cual ya puede utilizar el 
 
 En el navegador se ve de la siguiente forma.
 
-![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb.jpg)
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/Captura.JPG)
 
 En este ultimo ejercicio se utilizo Skeleton para dar estilos al documento.
