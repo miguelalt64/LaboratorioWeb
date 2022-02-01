@@ -29,6 +29,7 @@ Esta práctica se puede llevar a cabo de distintas formas, ya que la web es un e
 
 - El editor, Visual Studio Code
 - Node.js
+- http-server
 - bower
 -	HTML Snippets:
 - HTML Bolierplate
