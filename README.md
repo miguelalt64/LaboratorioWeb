@@ -17,8 +17,6 @@ Con más detalle, emplearemos, de manera escalonada, estas tecnologías de comun
 
 ## Desarrollo
 
-![Image text](https://github.com/miguelalt64/Personal/blob/master/Imagen1.jpg)
-
 ### Servicio web de chistes Chuck Norris: el ICNDB
 
 El actor y experto en artes marciales Carlos Ray Norris (mundialmente conocido como Chuck Norris) [https://chucknorris.com/](https://chucknorris.com/), ha servido desde hace mucho tiempo como fuente de inspiración de cientos de chistes respecto a su fortaleza, coraje y determinación (características idénticas a las de los alumnos del grado en Ingeniería Informática en UNIR). Tal es así, que incluso existe una base de datos oficial (ICNDB, [http://www.icndb.com/](http://www.icndb.com/) de estos chistes. Además, esta base de datos posee un API REST muy fácil de usar.
@@ -46,6 +44,18 @@ sudo dpkg –u code_1.63.2-1639562499_amd64.deb
 sudo apt install –f
 ```
 
+Para instalar	HTML Snippets, HTML Bolierplate, Bootstrap4 snippet
+
+1. Se debe ingresar en la aplicación de VS Code.
+2. Seleccionar en el panel izquierdo la sección de extensiones.
+3. Buscar el nombre de la extensión.
+4. Darle clic en el botón de Install.
+
+
+
+
+
+![Image text](https://github.com/miguelalt64/Personal/blob/master/Imagen1.jpg)
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
 AngularJS-powered HTML5 Markdown editor.
