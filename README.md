@@ -267,5 +267,30 @@ Se ve de la siguiente forma:
 
 ![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb2014Node.png)
 
+### Presente Web Components
 
+Y por fin llegamos a la forma de resolver este ejercicio de la manera más elegante posible: con Web Components. Vamos a usar el componente descrito aquí. Para instalarlo, se recomienda usar Bower:
+
+´´´
+bower install chuck-norris-joke --save
+´´´
+
+Aunque, como se indica en el enunciado, podemos usar un CDN en este caso no tenemos un CDN para este web component, pero podemos utilizar Github a modo de tal, como explicamos más abajo.
+
+Este módulo no se trata de un script de Javascript o un CSS a la antigua usanza, sino de un web component moderno. Para usarlo, se necesita la nueva directiva import definida en las últimas especificaciones del W3C (https://www.w3.org/TR/html-imports/). En caso de haberlo instalado mediante Bower, escribiríamos esta línea en nuestra página:
+
+<link rel="import" href="bower_components/chuck-norris-joke/chuck-norris-joke.html">
+
+Y en caso de usar Github como CDN, escribiríamos esta:
+
+<link rel="import" href="https://raw.githubusercontent.com/erikringsmuth/chuck-norris-joke/master/chuck-norris-joke.html">
+
+Ahora, si queremos un chiste de Chuck Norris, solo tenemos que incluir este tag en el fichero HTML:
+
+<chuck-norris-joke></chuck-norris-joke>
+
+Si hemos instalado el componente de manera local (con Bower, como se recomienda) ya no podemos abrir la página directamente y ver los resultados: ha de «ser servida» con un servidor web. Os recomiendo que uséis http-server (https://www.npmjs.com/package/http-server) basado en NodeJS y fácilmente instalable con NPM. Simplemente tenéis que ejecutar el comando http-server en el directorio de trabajo y listo. Por cierto, también es necesario, de momento, el uso de Chrome u Opera para ver el resultado. Algunos navegadores todavía no soportan los web components, pero es cuestión de (poco) tiempo.
+
+
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb.jpg)
 
