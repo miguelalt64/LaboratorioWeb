@@ -21,6 +21,18 @@ Con más detalle, emplearemos, de manera escalonada, estas tecnologías de comun
 
 ### Servicio web de chistes Chuck Norris: el ICNDB
 
+El actor y experto en artes marciales Carlos Ray Norris (mundialmente conocido como Chuck Norris)[https://chucknorris.com/](https://chucknorris.com/), ha servido desde hace mucho tiempo como fuente de inspiración de cientos de chistes respecto a su fortaleza, coraje y determinación (características idénticas a las de los alumnos del grado en Ingeniería Informática en UNIR). Tal es así, que incluso existe una base de datos oficial (ICNDB, [http://www.icndb.com/](http://www.icndb.com/) de estos chistes. Además, esta base de datos posee un API REST muy fácil de usar.
+
+### Instalación del entorno de desarrollo recomendado
+
+Esta práctica se puede llevar a cabo de distintas formas, ya que la web es un entorno de desarrollo abierto. Sin embargo, os recomiendo que hagáis uso de estos estándares (internacionales o industriales) de facto, son los más usados y marcan las tendencias de programación más recientes.
+
+- El editor, Visual Studio Code
+- Node.js
+- bower
+-	HTML Snippets:
+- HTML Bolierplate
+- Bootstrap4 snippet
 
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
