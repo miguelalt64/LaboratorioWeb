@@ -57,6 +57,16 @@ Para instalar	HTML Snippets, HTML Bolierplate, Bootstrap4 snippet
 
 ![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallHTMLSnippets.jpg)
 
+Comienzo del ejercicio
+
+
+
+Resolución del ejercicio a la manera de 2005
+
+
+
+El objeto XMLHttpRequest (https://www.w3.org/TR/2012/NOTE-XMLHttpRequest1-20120117/) nos permite hace peticiones AJAX (https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX) de manera bastante cómoda. Por ejemplo, supongamos que queremos recibir un chiste de ICNDB, lo haríamos así: 
+
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
 AngularJS-powered HTML5 Markdown editor.
