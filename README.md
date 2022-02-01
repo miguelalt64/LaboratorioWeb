@@ -271,26 +271,210 @@ Se ve de la siguiente forma:
 
 Y por fin llegamos a la forma de resolver este ejercicio de la manera más elegante posible: con Web Components. Vamos a usar el componente descrito aquí. Para instalarlo, se recomienda usar Bower:
 
-´´´
+```
 bower install chuck-norris-joke --save
-´´´
+```
 
 Aunque, como se indica en el enunciado, podemos usar un CDN en este caso no tenemos un CDN para este web component, pero podemos utilizar Github a modo de tal, como explicamos más abajo.
 
 Este módulo no se trata de un script de Javascript o un CSS a la antigua usanza, sino de un web component moderno. Para usarlo, se necesita la nueva directiva import definida en las últimas especificaciones del W3C (https://www.w3.org/TR/html-imports/). En caso de haberlo instalado mediante Bower, escribiríamos esta línea en nuestra página:
 
+```html
 <link rel="import" href="bower_components/chuck-norris-joke/chuck-norris-joke.html">
+```
 
 Y en caso de usar Github como CDN, escribiríamos esta:
 
+```html
 <link rel="import" href="https://raw.githubusercontent.com/erikringsmuth/chuck-norris-joke/master/chuck-norris-joke.html">
+```
 
 Ahora, si queremos un chiste de Chuck Norris, solo tenemos que incluir este tag en el fichero HTML:
 
+```html
 <chuck-norris-joke></chuck-norris-joke>
+```
 
-Si hemos instalado el componente de manera local (con Bower, como se recomienda) ya no podemos abrir la página directamente y ver los resultados: ha de «ser servida» con un servidor web. Os recomiendo que uséis http-server (https://www.npmjs.com/package/http-server) basado en NodeJS y fácilmente instalable con NPM. Simplemente tenéis que ejecutar el comando http-server en el directorio de trabajo y listo. Por cierto, también es necesario, de momento, el uso de Chrome u Opera para ver el resultado. Algunos navegadores todavía no soportan los web components, pero es cuestión de (poco) tiempo.
+Si hemos instalado el componente de manera local (con Bower, como se recomienda) ya no podemos abrir la página directamente y ver los resultados: ha de «ser servida» con un servidor web. Os recomiendo que uséis http-server (https://www.npmjs.com/package/http-server) basado en NodeJS y fácilmente instalable con NPM. Simplemente tenéis que ejecutar el comando http-server en el directorio de trabajo y listo. Por cierto, también es necesario, de momento, el uso de Chrome u Opera para ver el resultado. Algunos navegadores todavía no soportan los web components, pero es cuestión de poco tiempo.
 
+Al probar el código fuente, vi que la función definida era obsoleta, por lo cual redefiní la función utilizando customElements.define(), para poder usar esta función el Elemento Web debe ser definido como una clase heredada de HTMLElement.
+
+El codigo para crear el web componente es:
+
+```javscript
+export class ChuckNorrisFact extends HTMLElement {
+
+    constructor() {
+        // El contructor siempre debe incluir super()
+        super();
+    }
+
+    sendRequest(url) {
+        return new Promise((resolve, reject) => {
+            const httpRequest = new XMLHttpRequest();
+
+            httpRequest.onreadystatechange = ev => {
+                if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                    if (httpRequest.status === 200) {
+                        resolve(JSON.parse(httpRequest.responseText));
+                    }
+
+                    reject(httpRequest.responseText);
+                }
+            };
+
+            httpRequest.open('GET', url);
+            httpRequest.send();
+        });
+    }
+
+    getRandomFact() {
+        return this.sendRequest('http://api.icndb.com/jokes/random');
+    }
+
+    getCategorizedFact(category) {
+        return this.sendRequest(`http://api.icndb.com/jokes/${category}`);
+    }
+
+    definirParametros() {
+        if (this.hasAttribute('firstName')) {
+            queryParameters.push('firstName=' + this.getAttribute('firstName'));
+        }
+        if (this.hasAttribute('lastName')) {
+            queryParameters.push('lastName=' + this.getAttribute('lastName'));
+        }
+        if (this.hasAttribute('limitTo')) {
+            queryParameters.push('limitTo=[' + this.getAttribute('limitTo') + ']');
+        }
+        return this.getAttribute('category');
+    }
+
+    async connectedCallback() {
+        try {
+            this.definirParametros();
+            const response = await this.getChuckNorrisFact();
+            //const shadowRoot = this.attachShadow({mode: 'open'});
+            //console.log(response);
+            //shadowRoot.innerHTML = `<p>${response.value.joke}</p>`;
+            this.innerHTML = response.value.joke;
+            var text = this.getAttribute('text');
+            this.setAttribute('joke-id', response.value.id);
+            this.setAttribute('categories', response.value.categories);
+        } catch (e) {
+            console.error(e);
+            this.innerHTML = `<span>Couldn't load Chuck Norris joke. Check the console for more information</span>`;
+        }
+    }
+
+    static get properties() {
+        return {
+            category: {type: String, reflect: false}
+        }
+    }
+
+    getChuckNorrisFact() {
+        return this.getAttribute('joke-id') ? this.getCategorizedFact(this.getAttribute('joke-id')) : this.getRandomFact();
+    }
+}
+customElements.define('chuck-norris-joke', ChuckNorrisFact);
+```
+
+Posteriormente agregue este codigo en el HTML, con lo cual ya puede utilizar el Web Component.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Chuck norris Fact Element</title>
+
+    <link rel="stylesheet" href="./bower_components/skeleton-framework/dist/skeleton.css">
+    <!-- Imports custom element -->
+    <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=kGIuvTG_9O5ed2VhIPLso4261YqM5GV2WSGqxQcG8dK9c6mE7QeClyP190weCZq1q6Ir39yvtkazzfKnY3j3dKxF45Sbu0clRsPM8RsiMDY" charset="UTF-8"></script><script type="module" src="./chuck-norris-joke.js"></script>
+    <style>
+        chuck-norris-joke {
+          font-family: verdana;
+          font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="six columns">
+            <div class="card">
+                <h5>Random Joke about Chuck Norris</h5>
+                <chuck-norris-joke></chuck-norris-joke>
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="card">
+                <h5>Random Joke about Chuck Norris</h5>
+                <chuck-norris-joke></chuck-norris-joke>
+                <div class="u-text-right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns">
+            <div class="card">
+                <h5>Joke 196 about Chuck Norris</h5>
+                <chuck-norris-joke joke-id=196></chuck-norris-joke>
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="card">
+                <h5>Joke 449 about Chuck Norris</h5>
+                <chuck-norris-joke joke-id=449></chuck-norris-joke>
+                <div class="u-text-right">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="twelve columns">
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Joke</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><chuck-norris-joke></chuck-norris-joke></td>
+                            </tr>
+                            <tr>
+                                <td><chuck-norris-joke></chuck-norris-joke></td>
+                            </tr>
+                            <tr>
+                                <td><chuck-norris-joke></chuck-norris-joke></td>
+                            </tr>
+                            <tr>
+                                <td><chuck-norris-joke joke-id=196></chuck-norris-joke></td>
+                            </tr>
+                            <tr>
+                                <td><chuck-norris-joke joke-id=449></chuck-norris-joke></td>
+                            </tr>
+                            <tr>
+                                <td><chuck-norris-joke joke-id=475></chuck-norris-joke></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+</body>
+</html>
+```
+
+En el navegador se ve de la siguiente forma.
 
 ![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb.jpg)
 
+En este ultimo ejercicio se utilizo Skeleton para dar estilos al documento.
