@@ -53,7 +53,7 @@ Para instalar	HTML Snippets, HTML Bolierplate, Bootstrap4 snippet
 
 ![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallBoostrap.jpg)
 
-![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallBoilerplate.jpg)
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallBolierplate.jpg)
 
 ![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallHTMLSnippets.jpg)
 
