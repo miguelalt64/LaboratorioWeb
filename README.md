@@ -51,11 +51,9 @@ Para instalar	HTML Snippets, HTML Bolierplate, Bootstrap4 snippet
 3. Buscar el nombre de la extensión.
 4. Darle clic en el botón de Install.
 
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallBoostrap.jpg)
 
 
-
-
-![Image text](https://github.com/miguelalt64/Personal/blob/master/Imagen1.jpg)
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
 AngularJS-powered HTML5 Markdown editor.
