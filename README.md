@@ -57,9 +57,9 @@ Para instalar	HTML Snippets, HTML Bolierplate, Bootstrap4 snippet
 
 ![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallHTMLSnippets.jpg)
 
-Comienzo del ejercicio
+### Comienzo del ejercicio
 
-Resolución del ejercicio a la manera de 2005
+### Resolución del ejercicio a la manera de 2005
 
 El objeto XMLHttpRequest (https://www.w3.org/TR/2012/NOTE-XMLHttpRequest1-20120117/) nos permite hace peticiones AJAX (https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX) de manera bastante cómoda. Por ejemplo, supongamos que queremos recibir un chiste de ICNDB, lo haríamos así: 
 
@@ -103,3 +103,50 @@ Gracias a los snippets instalados se puede generar la estructura del documento c
 	<h1 class="display-4">Hello, world!</h1>
 </div>
 ```
+
+### Resolución del ejercicio a la manera de 2006
+
+A principios de 2006 nació jQuery (https://jquery.org/) de la mano de John Resig. Todo empezó en un sencillo e inocente post en su blog. Entre otras muchas cosas increíbles, el framework jQuery incorpora una nueva instrucción $.ajax(…) muy útil.
+
+Resig, J. (22 de agosto de 2005). Selectors in Javascript (Blog post). Recuperado de https://johnresig.com/blog/selectors-in-javascript/
+
+Para hacer el ejercicio como en 2006, tenemos que enlazar con la biblioteca de jQuery. Cread otro fichero, por ejemplo chuck2006.html. Nuevamente, podemos usar su CDN (https://code.jquery.com/).
+
+Con el siguiente código Javascript, conseguimos un funcionamiento parecido al ejercicio anterior:
+
+```html
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=T9P5MpEhKjURC4IFyYWNsYSzOIRsFQhk7WQRcSniEvOZxGvmaMlryzrLS7B0i0H_semB-PebbW9LBQeXa8mwQw" charset="UTF-8"></script><script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+            $.get("http://api.icndb.com/jokes/random", (response) => { 
+	        var textoChiste = response.value.joke; 
+ 	        $('h1').text(textoChiste); 
+            }) 
+        </script>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
+            <h1 class="display-4">Hello, world!</h1>
+          </div>
+
+        <script src="" async defer></script>
+    </body>
+</html>
+```
+
+El uso de JQuery facilita demasiado el trabajo de llamadas AJAX, además tiene una sintaxis más limpia.
+
+Al no limitar el H1 con un ID, en cualquier H1 se agregara la respuesta.
