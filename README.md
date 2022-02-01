@@ -89,10 +89,17 @@ El objeto XMLHttpRequest (https://www.w3.org/TR/2012/NOTE-XMLHttpRequest1-201201
     <body>
         <div class="jumbotron">
             <h1 class="display-4">Hello, world!</h1>
-          </div>
+        </div>
 
         <script src="" async defer></script>
     </body>
 </html>
 ```
 
+Gracias a los snippets instalados se puede generar la estructura del documento con escribir HTML y presionar tabulador. Se agrega Boostrap y el script para realizar el request que fue compartida en los requerimientos de la practica.
+
+```html
+<div class="jumbotron">
+	<h1 class="display-4">Hello, world!</h1>
+</div>
+```
