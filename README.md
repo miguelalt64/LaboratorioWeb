@@ -104,6 +104,10 @@ Gracias a los snippets instalados se puede generar la estructura del documento c
 </div>
 ```
 
+En el navegador se ve de la siguiente forma:
+
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb2005.JPG)
+
 ### Resolución del ejercicio a la manera de 2006
 
 A principios de 2006 nació jQuery (https://jquery.org/) de la mano de John Resig. Todo empezó en un sencillo e inocente post en su blog. Entre otras muchas cosas increíbles, el framework jQuery incorpora una nueva instrucción $.ajax(…) muy útil.
@@ -147,6 +151,9 @@ Con el siguiente código Javascript, conseguimos un funcionamiento parecido al e
 </html>
 ```
 
-El uso de JQuery facilita demasiado el trabajo de llamadas AJAX, además tiene una sintaxis más limpia.
+¿Qué diferencias ves con respecto al ejercicio anterior? ¿Cómo simplifica la vida jQuery? ¿Qué ocurre si tenemos varios tags h1?
+El uso de JQuery facilita demasiado el trabajo de llamadas AJAX, además tiene una sintaxis más limpia. Al no limitar el H1 con un ID, en cualquier H1 se agregara la respuesta.
 
-Al no limitar el H1 con un ID, en cualquier H1 se agregara la respuesta.
+En el navegador se ve de la siguiente forma:
+
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb2006.JPG)
