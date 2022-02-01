@@ -21,7 +21,7 @@ Con más detalle, emplearemos, de manera escalonada, estas tecnologías de comun
 
 ### Servicio web de chistes Chuck Norris: el ICNDB
 
-El actor y experto en artes marciales Carlos Ray Norris (mundialmente conocido como Chuck Norris)[https://chucknorris.com/](https://chucknorris.com/), ha servido desde hace mucho tiempo como fuente de inspiración de cientos de chistes respecto a su fortaleza, coraje y determinación (características idénticas a las de los alumnos del grado en Ingeniería Informática en UNIR). Tal es así, que incluso existe una base de datos oficial (ICNDB, [http://www.icndb.com/](http://www.icndb.com/) de estos chistes. Además, esta base de datos posee un API REST muy fácil de usar.
+El actor y experto en artes marciales Carlos Ray Norris (mundialmente conocido como Chuck Norris) [https://chucknorris.com/](https://chucknorris.com/), ha servido desde hace mucho tiempo como fuente de inspiración de cientos de chistes respecto a su fortaleza, coraje y determinación (características idénticas a las de los alumnos del grado en Ingeniería Informática en UNIR). Tal es así, que incluso existe una base de datos oficial (ICNDB, [http://www.icndb.com/](http://www.icndb.com/) de estos chistes. Además, esta base de datos posee un API REST muy fácil de usar.
 
 ### Instalación del entorno de desarrollo recomendado
 
@@ -33,6 +33,17 @@ Esta práctica se puede llevar a cabo de distintas formas, ya que la web es un e
 -	HTML Snippets:
 - HTML Bolierplate
 - Bootstrap4 snippet
+
+Para esta práctica he decidido realizarlo en Ubuntu 20.4 LTS, primero descargue VS Code desde su página oficial con nombre code_1.63.2-1639562499_amd64.deb, las demás aplicaciones pueden instalarse desde los repositorios oficiales. Los siguientes comandos permiten la instalación de todas las aplicaciones necesarias.
+
+```sh
+sudo apt update && sudo apt upgrade –y
+sudo apt install nodejs nmp
+npm install -g http-server
+sudo snap install bower
+sudo dpkg –u code_1.63.2-1639562499_amd64.deb
+sudo apt install –f
+```
 
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
