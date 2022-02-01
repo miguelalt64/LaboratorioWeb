@@ -53,6 +53,9 @@ Para instalar	HTML Snippets, HTML Bolierplate, Bootstrap4 snippet
 
 ![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallBoostrap.jpg)
 
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallBoilerplate.jpg)
+
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/InstallHTMLSnippets.jpg)
 
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
