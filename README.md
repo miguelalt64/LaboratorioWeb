@@ -157,3 +157,95 @@ El uso de JQuery facilita demasiado el trabajo de llamadas AJAX, además tiene u
 En el navegador se ve de la siguiente forma:
 
 ![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb2006.JPG)
+
+### Resolución del ejercicio a la manera de 2013 - plugin
+
+jQuery no tardó en tener soporte para plugins (¡apenas unas semanas tras su nacimiento!). Mucha gente empezó a elaborar estos miniprogramas y, entre ellos, los propios gestores del ICNDB. Gracias a su plugin de jQuery, podemos acceder a su API de manera todavía más elegante.
+
+En el enlace anterior tienes acceso a un CDN listo para funcionar. Como antes, solo tenéis que usarlo para poblar el atributo src de una etiqueta script. Para extraer el texto de un norrischiste, simplemente tenéis que ejecutar
+
+Al implentar el plugin dentro de una pagina queda de esta forma:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=S08JlCrDSd6z800JikkqaNSayxywAnoiaP8jJQdAHa7fp5q5rbeBWLZjylgDFV9QjNKZc9DUx-JK5MYzGbwSjw" charset="UTF-8"></script><script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="http://code.icndb.com/jquery.icndb.min.js"></script>
+        <script>
+            $.icndb.getRandomJokes({
+	            number: 10,  
+  	            success: (response) => { 
+                response.forEach(element => { $("ul").append('<li class="list-group-item">' + element.joke + '</li>'); }); 
+            }}); 
+        </script>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <ul class="list-group"></ul>
+          </div>
+
+        <script src="" async defer></script>
+    </body>
+</html>
+```
+
+En el navegador se ve de esta forma:
+
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb2013.JPG)
+
+### Resolución del ejercicio a la manera de 2014 - fetch
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=1VKT-DZhqOoYCe3eEyfb3txmc97BrmYIbjvk1ncSV3vY43NXtpP34-5V8rfLyNL2Q6wEk9_XSJixCxq9hP2cNA" charset="UTF-8"></script><script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="http://code.icndb.com/jquery.icndb.min.js"></script>
+        <script>
+            //fetch('http://api.icndb.com/jokes/random')
+            //    .then(response =>  response.json() )
+            //    .then(data => console.log(data) );
+
+            fetch('http://api.icndb.com/jokes/random')
+                .then( function(response) {
+                    return response.json();
+                }).then(function(data) {
+                    document.getElementById("chiste").innerHTML = data.value.joke;
+                    console.log(data);
+                })
+                .catch(function(error) {
+                log('Request failed', error);
+            });
+        </script>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Estilo 2014 - fetch</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Chuck Norris</h6>
+                  <p class="card-text" id="chiste"></p>
+    
+                </div>
+              </div>    
+        </div>
+
+        <script src="" async defer></script>
+    </body>
+</html>
+```
+
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/image/CapturaWeb2014.JPG)
