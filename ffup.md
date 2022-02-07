@@ -50,3 +50,10 @@ Within our PwnBox, we can find the entire SecLists repo available under /opt/use
 Miguel Angel@htb[/htb]$ locate directory-list-2.3-small.txt
 /opt/useful/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt
 ```
+
+### Removing Comments
+
+```bash
+Miguel Angel@htb[/htb]$ sudo sed -i 's/^\#.*$//g' /opt/useful/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt && sudo sed -i '/^$/d' /opt/useful/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt
+```
+
