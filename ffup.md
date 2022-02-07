@@ -45,3 +45,8 @@ To determine which pages exist, we should have a wordlist containing commonly us
 We will not have to reinvent the wheel by manually creating these wordlists, as great efforts have been made to search the web and determine the most commonly used words for each type of fuzzing. Some of the most commonly used wordlists can be found under the GitHub SecLists repository, which categorizes wordlists under various types of fuzzing, even including commonly used passwords, which will later utilize for Password Brute Forcing.
 
 Within our PwnBox, we can find the entire SecLists repo available under /opt/useful/SecLists. The specific wordlist we will be utilizing for pages and directory fuzzing is another commonly used wordlist called directory-list-2.3, and it is available in various forms and sizes. We can find the one we will be using under:
+
+```bash
+Miguel Angel@htb[/htb]$ locate directory-list-2.3-small.txt
+/opt/useful/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt
+```
