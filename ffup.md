@@ -51,6 +51,8 @@ Miguel Angel@htb[/htb]$ locate directory-list-2.3-small.txt
 /opt/useful/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt
 ```
 
+> Tip: Taking a look at this wordlist we will notice that it contains copyright comments at the beginning, which can be considered as part of the wordlist and clutter the results. We can use the following command to get rid of these lines:
+
 ### Removing Comments
 
 ```bash
