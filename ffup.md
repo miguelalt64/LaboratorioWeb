@@ -253,3 +253,4 @@ We get a couple of hits; both have an HTTP code 200, meaning we can access them.
 
    
 http://SERVER_IP:PORT/blog/REDACTED.php
+![Image text](https://github.com/miguelalt64/LaboratorioWeb/blob/main/htbimg/web_fnb_login.jpg)
